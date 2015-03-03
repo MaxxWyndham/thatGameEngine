@@ -43,6 +43,7 @@ namespace thatGameEngine
         List<Entity> entities = new List<Entity>();
         List<Model> models = new List<Model>();
         MaterialList materials = new MaterialList();
+        List<Object> objects = new List<Object>();
 
         Matrix4 sceneTransform = Matrix4.Identity;
         CoordinateSystem coords = CoordinateSystem.LeftHanded;
@@ -63,6 +64,7 @@ namespace thatGameEngine
         public List<Entity> Entities { get { return entities; } }
         public List<Model> Models { get { return models; } }
         public MaterialList Materials { get { return materials; } }
+        public List<Object> Objects { get { return objects; } }
 
         public Matrix4 Transform { get { return sceneTransform; } }
 
@@ -217,6 +219,11 @@ namespace thatGameEngine
         public void Update(float dt)
         {
             this.dt = dt;
+
+            foreach (var o in objects)
+            {
+                o.Update(dt);
+            }
         }
 
         public void Lights()
@@ -289,6 +296,11 @@ namespace thatGameEngine
             foreach (var entity in entities)
             {
                 entity.Draw();
+            }
+
+            foreach (var o in objects)
+            {
+                o.Draw();
             }
         }
 
