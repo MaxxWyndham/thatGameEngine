@@ -4,11 +4,11 @@ namespace thatGameEngine
 {
     public abstract class Object
     {
-        public void Update(float dt)
+        public virtual void Update(float dt)
         {
         }
 
-        public void Draw()
+        public virtual void Draw()
         {
         }
     }
