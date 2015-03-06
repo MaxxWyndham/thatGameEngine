@@ -278,7 +278,7 @@ namespace thatGameEngine
             GL.Vertex3(0, 0, 1.0f);
             GL.End();
 
-            if (bb != null) { bb.Draw(); }
+            //if (bb != null) { bb.Draw(); }
 
             GL.Enable(EnableCap.CullFace);
             GL.Enable(EnableCap.Texture2D);

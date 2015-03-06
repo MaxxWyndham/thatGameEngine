@@ -9,10 +9,18 @@ namespace thatGameEngine
     {
         Vector3 min;
         Vector3 max;
-        ModelMesh mesh;
 
-        public Vector3 Min { get { return min; } }
-        public Vector3 Max { get { return max; } }
+        public Vector3 Min 
+        { 
+            get { return min; } 
+            set { min = value; } 
+        }
+
+        public Vector3 Max 
+        {
+            get { return max; } 
+            set { max = value; } 
+        }
 
         public Vector3 Centre
         {
@@ -26,10 +34,10 @@ namespace thatGameEngine
             }
         }
 
+        public BoundingBox() { }
+
         public BoundingBox(ModelMesh mesh)
         {
-            this.mesh = mesh;
-
             Calculate(mesh);
         }
 
@@ -53,12 +61,17 @@ namespace thatGameEngine
             }
         }
 
-        public void Draw()
+        public void Draw(Matrix4 m)
         {
-            var m = mesh.Parent.CombinedTransform * SceneManager.Current.Transform;
+            m = m * SceneManager.Current.Transform;
 
             GL.PushMatrix();
             GL.MultMatrix(ref m);
+
+            GL.Disable(EnableCap.Texture2D);
+            GL.Disable(EnableCap.Lighting);
+            GL.Disable(EnableCap.Light0);
+            GL.Disable(EnableCap.CullFace);
 
             GL.Begin(PrimitiveType.Quads);
             GL.Color4(0f, 1.0f, 0f, 1.0f);
@@ -84,6 +97,11 @@ namespace thatGameEngine
             GL.Vertex3(min.X, max.Y, max.Z);
 
             GL.End();
+
+            GL.Enable(EnableCap.Texture2D);
+            GL.Enable(EnableCap.Lighting);
+            GL.Enable(EnableCap.Light0);
+            GL.Enable(EnableCap.CullFace);
 
             GL.PopMatrix();
         }
