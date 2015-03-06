@@ -31,7 +31,7 @@ namespace thatGameEngine
         {
             var m = new Model();
 
-            //m.bones = new ModelBoneCollection(this.bones);
+            m.bones = new ModelBoneCollection(this.bones);
             m.meshes = this.meshes.ConvertAll(mesh => new ModelMesh(mesh));
 
             foreach (var kvp in this.supportingDocuments)
