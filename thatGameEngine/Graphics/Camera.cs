@@ -149,6 +149,11 @@ namespace thatGameEngine
             position.Z = Z;
         }
 
+        public void SetTarget(Vector3 pos)
+        {
+            target = pos;
+        }
+
         public void SetPosition(Vector3 pos)
         {
             position = pos;
