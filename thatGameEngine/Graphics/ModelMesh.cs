@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 
 using OpenTK;
+using thatGameEngine.Collision;
 
 namespace thatGameEngine
 {
     public class ModelMesh
     {
         BoundingBox boundingBox;
-        BoundingSphere BoundingSphere;
+        BoundingSphere boundingSphere;
         List<ModelMeshPart> meshParts;
         string name;
         ModelBone parent;
@@ -44,6 +45,15 @@ namespace thatGameEngine
             {
                 if (boundingBox == null) { boundingBox = new BoundingBox(this); }
                 return boundingBox;
+            }
+        }
+
+        public BoundingSphere BoundingSphere
+        {
+            get
+            {
+                if (boundingSphere == null) { boundingSphere = BoundingSphere.CreateFromBoundingBox(BoundingBox); }
+                return boundingSphere;
             }
         }
 

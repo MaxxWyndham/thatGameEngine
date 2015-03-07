@@ -11,8 +11,6 @@ namespace thatGameEngine
         List<int> indicies;
         int ibo;
 
-        static int[] data;
-
         public List<int> Data { get { return indicies; } }
         public int Length { get { return indicies.Count; } }
 
