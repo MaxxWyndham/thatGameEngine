@@ -13,11 +13,8 @@ namespace thatGameEngine.Collision
         {
             var sphere = new BoundingSphere();
 
-            sphere.Centre = box.Centre;
-            sphere.Radius = (Single)Math.Max(
-                                    Math.Abs(Math.Sqrt(Math.Pow(box.Min.X, 2) + Math.Pow(box.Min.Y, 2) + Math.Pow(box.Min.Z, 2))),
-                                    Math.Abs(Math.Sqrt(Math.Pow(box.Max.X, 2) + Math.Pow(box.Max.Y, 2) + Math.Pow(box.Max.Z, 2)))
-                                  );
+            sphere.Centre = Vector3.Lerp(box.Min, box.Max, 0.5f);
+            sphere.Radius = (box.Min - box.Max).Length * 0.5f;
 
             return sphere;
         }
