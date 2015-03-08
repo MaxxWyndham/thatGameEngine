@@ -90,8 +90,11 @@ namespace thatGameEngine
 
         public Bitmap GetThumbnail(int maxWidth = 128, bool suppressAlpha = true)
         {
-            var bmp = this.supportingDocuments["Source"] as Bitmap;
-            if (bmp != null) { return bmp; }
+            if (this.supportingDocuments.ContainsKey("Source"))
+            {
+                var bmp = this.supportingDocuments["Source"] as Bitmap;
+                if (bmp != null) { return bmp; }
+            }
 
             //var tdx = this.supportingDocuments["Source"] as ToxicRagers.CarmageddonReincarnation.Formats.TDX;
             //if (tdx != null) { return tdx.Decompress(tdx.GetMipLevelForSize(maxWidth), suppressAlpha); }

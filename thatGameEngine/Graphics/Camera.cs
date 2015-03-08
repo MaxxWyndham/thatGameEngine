@@ -39,6 +39,11 @@ namespace thatGameEngine
         public float RotationSpeed { get { return rotationSpeed; } }
         public float ZoomSpeed { get { return zoomSpeed; } }
 
+        public Vector3 CameraDirection
+        {
+            get { return (position - target).Normalized(); }
+        }
+
         public Projection ProjectionMode
         {
             get { return projectionMode; }

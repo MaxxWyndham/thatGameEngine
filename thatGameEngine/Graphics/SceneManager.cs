@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
+using thatGameEngine.Collision;
 
 namespace thatGameEngine
 {
@@ -34,6 +35,7 @@ namespace thatGameEngine
         }
 
         public static SceneManager Current;
+        public BoundingFrustum Frustum;
 
         int selectedBoneIndex = 0;
         int selectedModelIndex = 0;

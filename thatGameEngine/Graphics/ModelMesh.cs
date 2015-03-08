@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using OpenTK;
+using OpenTK.Graphics.OpenGL;
 using thatGameEngine.Collision;
 
 namespace thatGameEngine
@@ -100,7 +101,9 @@ namespace thatGameEngine
 
         public void Draw()
         {
-            if (visible)
+            if (boundingSphere == null) { boundingSphere = BoundingSphere.CreateFromBoundingBox(BoundingBox); }
+
+            if (visible && SceneManager.Current.Frustum.Contains(ref boundingSphere) != ContainmentType.Disjoint)
             {
                 foreach (ModelMeshPart meshpart in meshParts)
                 {
