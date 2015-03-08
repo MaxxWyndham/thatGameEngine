@@ -3,7 +3,7 @@
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 
-namespace thatGameEngine
+namespace thatGameEngine.Collision
 {
     public class BoundingBox
     {

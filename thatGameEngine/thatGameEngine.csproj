@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collision\BoundingFrustum.cs" />
+    <Compile Include="Collision\Enums.cs" />
     <Compile Include="Collision\Helpers.cs" />
+    <Compile Include="Collision\Plane.cs" />
     <Compile Include="Collision\Ray.cs" />
     <Compile Include="ContentPipeline\ContentExporter.cs" />
     <Compile Include="ContentPipeline\ContentImporter.cs" />
@@ -60,7 +63,7 @@
     <Compile Include="ContentPipeline\ExportSettings.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Graphics\Asset.cs" />
-    <Compile Include="Graphics\BoundingBox.cs" />
+    <Compile Include="Collision\BoundingBox.cs" />
     <Compile Include="Collision\BoundingSphere.cs" />
     <Compile Include="Graphics\Camera.cs" />
     <Compile Include="Graphics\ContentManager.cs" />

@@ -10,11 +10,13 @@ namespace thatGameEngine.Collision
         public static float? RayIntersectsModel(Ray ray, Model model, Matrix4 modelTransform,
                                                     out bool insideBoundingSphere,
                                                     out Vector3 vertex1, out Vector3 vertex2, out Vector3 vertex3,
-                                                    out ModelMeshPart intersectsWith
+                                                    out ModelMeshPart intersectsWithPart,
+                                                    out ModelMesh intersectsWith
                                                 )
         {
             vertex1 = vertex2 = vertex3 = Vector3.Zero;
             insideBoundingSphere = false;
+            intersectsWithPart = null;
             intersectsWith = null;
 
             Matrix4 inverseTransform = Matrix4.Invert(modelTransform);
@@ -53,7 +55,8 @@ namespace thatGameEngine.Collision
                                     vertex2 = Vector3.Transform(part.VertexBuffer.Data[part.IndexBuffer.Data[i + 1]].Position, modelTransform);
                                     vertex3 = Vector3.Transform(part.VertexBuffer.Data[part.IndexBuffer.Data[i + 2]].Position, modelTransform);
 
-                                    intersectsWith = part;
+                                    intersectsWithPart = part;
+                                    intersectsWith = mesh;
                                 }
                             }
                         }
@@ -134,6 +137,28 @@ namespace thatGameEngine.Collision
             }
 
             result = rayDistance;
+        }
+
+        public static PlaneIntersectionType PlaneIntersectsSphere(Plane plane, ref BoundingSphere sphere)
+        {
+            //Source: Real-Time Collision Detection by Christer Ericson
+            //Reference: Page 160
+
+            float distance;
+            Vector3.Dot(ref plane.Normal, ref sphere.Centre, out distance);
+            distance += plane.D;
+
+            if (distance > sphere.Radius)
+            {
+                return PlaneIntersectionType.Front;
+            }
+
+            if (distance < -sphere.Radius)
+            {
+                return PlaneIntersectionType.Back;
+            }
+
+            return PlaneIntersectionType.Intersecting;
         }
     }
 }
