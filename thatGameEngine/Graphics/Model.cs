@@ -271,6 +271,9 @@ namespace thatGameEngine
 
             foreach (var mesh in meshes)
             {
+                Vector3 oldCentre = mesh.BoundingSphere.Centre;
+                mesh.BoundingSphere.Centre = Vector3.Transform(mesh.BoundingSphere.Centre, m * transforms[mesh.Parent.Index]);
+
                 GL.PushMatrix();
 
                 GL.MultMatrix(ref m);
@@ -279,6 +282,8 @@ namespace thatGameEngine
                 mesh.Draw();
 
                 GL.PopMatrix();
+
+                mesh.BoundingSphere.Centre = oldCentre;
             }
         }
     }
