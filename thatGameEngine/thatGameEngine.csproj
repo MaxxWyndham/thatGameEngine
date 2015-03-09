@@ -78,6 +78,7 @@
     <Compile Include="Graphics\ModelMesh.cs" />
     <Compile Include="Graphics\ModelMeshPart.cs" />
     <Compile Include="Graphics\Object.cs" />
+    <Compile Include="Graphics\Particle.cs" />
     <Compile Include="Graphics\Primitive.cs" />
     <Compile Include="Graphics\Primitives\Sphere.cs" />
     <Compile Include="Graphics\SceneManager.cs" />

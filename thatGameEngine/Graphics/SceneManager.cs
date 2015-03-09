@@ -36,6 +36,7 @@ namespace thatGameEngine
 
         public static SceneManager Current;
         public BoundingFrustum Frustum;
+        public Random Rando = new Random();
 
         int selectedBoneIndex = 0;
         int selectedModelIndex = 0;
@@ -225,6 +226,11 @@ namespace thatGameEngine
             foreach (var o in objects)
             {
                 o.Update(dt);
+            }
+
+            for (int i = objects.Count - 1; i >= 0; i--)
+            {
+                if (objects[i].Dead) { objects.RemoveAt(i); }
             }
         }
 
