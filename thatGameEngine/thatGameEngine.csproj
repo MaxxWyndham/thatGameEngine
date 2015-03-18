@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collision\BoundingFrustum.cs" />
+    <Compile Include="Collision\Contact.cs" />
     <Compile Include="Collision\Enums.cs" />
     <Compile Include="Collision\Helpers.cs" />
     <Compile Include="Collision\Plane.cs" />
@@ -78,10 +79,10 @@
     <Compile Include="Graphics\ModelMesh.cs" />
     <Compile Include="Graphics\ModelMeshPart.cs" />
     <Compile Include="Graphics\Object.cs" />
-    <Compile Include="Graphics\Particle.cs" />
     <Compile Include="Graphics\Primitive.cs" />
     <Compile Include="Graphics\Primitives\Sphere.cs" />
     <Compile Include="Graphics\SceneManager.cs" />
+    <Compile Include="Graphics\Sprite.cs" />
     <Compile Include="Graphics\Texture.cs" />
     <Compile Include="Graphics\VertexBuffer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
