@@ -32,8 +32,6 @@ namespace thatGameEngine
     public class Entity : Asset
     {
         string uniqueIdentifier;
-        string name;
-        string tag;
         EntityType entityType = EntityType.Powerup;
         Matrix4 transform;
         Asset asset;
@@ -43,18 +41,6 @@ namespace thatGameEngine
         {
             get { return uniqueIdentifier; }
             set { uniqueIdentifier = value; }
-        }
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public string Tag
-        {
-            get { return tag; }
-            set { tag = value; }
         }
 
         public EntityType EntityType

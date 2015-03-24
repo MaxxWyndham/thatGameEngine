@@ -34,6 +34,30 @@ namespace thatGameEngine.Collision
             }
         }
 
+        public Single Width
+        {
+            get
+            {
+                return max.X - min.X;
+            }
+        }
+
+        public Single Height
+        {
+            get
+            {
+                return max.Y - min.Y;
+            }
+        }
+
+        public Single Depth
+        {
+            get
+            {
+                return max.Z - min.Z;
+            }
+        }
+
         public BoundingBox() { }
 
         public BoundingBox(ModelMesh mesh)
